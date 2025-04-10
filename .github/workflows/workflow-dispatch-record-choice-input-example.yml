@@ -1,0 +1,18 @@
+name: Workflow Dispatch Choice Input Example
+
+on:
+ workflow_dispatch:
+    inputs:
+      Record-ACAT:
+        description: ‘Record ACAT-test run’
+        required: true
+        default: $CYPRESS_RECORD_OPTION = “--record”
+        type: choice
+        options:
+          - ${ CYPRESS_RECORD_OPTION } = “--record”
+          - ${ CYPRESS_RECORD_OPTION } = “--record false”
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Updating ${ CYPRESS_RECORD_OPTION } environment"
