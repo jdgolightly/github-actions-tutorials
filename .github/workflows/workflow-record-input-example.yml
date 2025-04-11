@@ -5,8 +5,8 @@ on:
     inputs:
       Record-ACAT:
         description: ‘Record ACAT-test run’
-        required: false
-        default:  $REC_OPTION = '--record false'
+        required: true
+        default:  $REC_OPTION --record false
         type: choice
         options:
           -  $REC_OPTION --record
