@@ -15,4 +15,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Updating gh variable get { CYPRESS_RECORD_OPTION } environment"
+      - run: echo "Updating gh variable get" { CYPRESS_RECORD_OPTION }
+             echo "Updated gh variable list" { CYPRESS_RECORD_OPTION }"
