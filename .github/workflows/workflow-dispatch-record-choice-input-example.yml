@@ -6,13 +6,13 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
-        default: CYPRESS_RECORD_OPTION = “--record”
+        default: gh variable set { CYPRESS_RECORD_OPTION } = “--record”
         type: choice
         options:
-          - CYPRESS_RECORD_OPTION  = “--record”
-          - CYPRESS_RECORD_OPTION = “--record false”
+          - gh variable set { CYPRESS_RECORD_OPTION } = “--record”
+          - gh variable set { CYPRESS_RECORD_OPTION } = “--record false”
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Updating ${ CYPRESS_RECORD_OPTION } environment"
+      - run: echo "Updating gh variable get { CYPRESS_RECORD_OPTION } environment"
