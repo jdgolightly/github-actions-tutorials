@@ -9,8 +9,8 @@ on:
         default: gh variable set $CYPRESS_RECORD_OPTION = “--record”
         type: choice
         options:
-          - gh variable set $CYPRESS_RECORD_OPTION$ = “--record”
-          - gh variable set  $CYPRESS_RECORD_OPTION$ = “--record false”
+          - gh variable set $CYPRESS_RECORD_OPTION = “--record”
+          - gh variable set  $CYPRESS_RECORD_OPTION = “--record false”
 jobs:
   deploy:
     runs-on: ubuntu-latest
