@@ -6,7 +6,7 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
-        default:  ${{ sectrets.RECORD_OPTION }} = “--record false”
+        default:  ${{ secrets.RECORD_OPTION }} = “--record false”
         type: choice
         options:
           - ${{ secrets.RECORD_OPTION }} = "--record"
