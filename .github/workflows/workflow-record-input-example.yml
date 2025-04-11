@@ -6,11 +6,11 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: false
-        default:  $REC_OPTION = “--record false”
+        default:  $REC_OPTION = '--record false'
         type: choice
         options:
-          -  $REC_OPTION = "--record"
-          - $REC_OPTION = “--record false”
+          -  $REC_OPTION = '--record'
+          - $REC_OPTION = '--record false'
 jobs:
   deploy:
     runs-on: ubuntu-latest
