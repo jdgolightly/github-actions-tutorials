@@ -6,14 +6,13 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
-        default: gh variable set $CYPRESS_RECORD_OPTION = “--record”
+        default:  ${{ sectrets.RECORD_OPTION }} = “--record false”
         type: choice
         options:
-          - gh variable set $CYPRESS_RECORD_OPTION = “--record”
-          - gh variable set  $CYPRESS_RECORD_OPTION = “--record false”
+          - ${{ secrets.RECORD_OPTION }} = "--record"
+          - ${{ secrets.RECORD_OPTION }} = “--record false”
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Updating gh variable get $CYPRESS_RECORD_OPTION"
-      - run: echo "Updated gh variable list $CYPRESS_RECORD_OPTION" 
+      - run: echo "Secret RECORD_OPTION value: ${{ secrets.RECORD_OPTION}} "
