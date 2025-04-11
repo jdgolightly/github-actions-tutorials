@@ -6,13 +6,13 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
-        default:  ${{ secrets.RECORD_OPTION }} = “--record false”
+        default:  $REC_OPTION = “--record false”
         type: choice
         options:
-          - ${{ secrets.RECORD_OPTION }} = "--record"
-          - ${{ secrets.RECORD_OPTION }} = “--record false”
+          - $REC_OPTION= "--record"
+          - $RECORD_OPTION= “--record false”
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo " secret value ${{ secrets.RECORD_OPTION}} "
+      - run: echo " secret value $REC_OPTION"
