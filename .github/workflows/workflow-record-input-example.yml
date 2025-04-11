@@ -9,10 +9,10 @@ on:
         default:  $REC_OPTION = “--record false”
         type: choice
         options:
-          -  ${{ env.REC_OPTION }} = "--record"
-          - ${{ env.REC_OPTION }} = “--record false”
+          -  ${{ REC_OPTION }} = "--record"
+          - ${{ REC_OPTION }} = “--record false”
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo " secret value ${{ env.REC_OPTION }}"
+      - run: echo " secret value ${{ REC_OPTION }}"
