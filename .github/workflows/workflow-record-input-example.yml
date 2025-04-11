@@ -1,4 +1,4 @@
-name: Workflow Dispatch Record Choice Input Example
+name: Workflow Record Input Example
 
 on:
  workflow_dispatch:
