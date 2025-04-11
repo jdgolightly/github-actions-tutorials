@@ -15,4 +15,4 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Secret RECORD_OPTION value: ${{ secrets.RECORD_OPTION}} "
+      - run: echo " secret value ${{ secrets.RECORD_OPTION}} "
