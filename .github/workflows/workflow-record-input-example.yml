@@ -6,7 +6,7 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
-        default:  CYPRESS_RECORD_OPTION >> $GITHUB_VAR
+        default:  $CYPRESS_RECORD_OPTION >> $GITHUB_VAR
         type: choice
         options:
           - $CYPRESS_RECORD_OPTION --record
