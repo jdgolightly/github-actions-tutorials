@@ -9,8 +9,8 @@ on:
         default:  $secrets.RECORD_OPTION = --record false
         type: choice
         options:
-          - $secrets_RECORD_OPTION = --record
-          - $secrets_RECORD_OPTION = --record false
+          - $secrets.RECORD_OPTION = --record
+          - $secrets.RECORD_OPTION = --record false
 jobs:
   deploy:
     runs-on: ubuntu-latest
