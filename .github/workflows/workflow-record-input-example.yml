@@ -16,8 +16,7 @@ on:
     branches:
       - main
           
-env:
-  CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT || '--record false' }}
+
   
 
 jobs:
