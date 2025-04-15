@@ -11,9 +11,14 @@ on:
         options:
           - --record false
           - --record 
+
+ push:
+    branches:
+      - main
+          
 env:
-  CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT}}
-  DEV_ENVIRONMENT_VAR: 'Check-Input'
+  CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT || '--record false' }}
+  
 
 jobs:
   deploy:
