@@ -9,20 +9,21 @@ on:
         default: '--record false'
         type: choice
         options:
-          - --record false 
+          - --record false
           - --record 
 
  push:
     branches:
       - main
           
-env:
-  CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT }}
-  OPTION: ${{ vars.CYPRESS_RECORD_OPTION }}
-
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.Record-ACAT}} ${{ vars.CYPRESS_RECORD_OPTION }} ${{vars.OPTION}} "
+      - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.Record-ACAT}} "
+      notify:
+        runs-on: ubuntu-latest
+        if: ${{ github.workflow_dispatch.event.inputs.CYPRESS_RECORD_OPTION == '--record' }}
+        steps:
+          - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.environment.CYPRESS_RECORD_OPTION }}"
