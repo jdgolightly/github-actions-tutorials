@@ -13,7 +13,7 @@ on:
           - --record 
 env:
   CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT}}
-  DEV_ENVIRONMENT_VAR: ${{ vars.CYPRESS_RECORD_OPTION}}
+  DEV_ENVIRONMENT_VAR: 'Check-Input'
 
 jobs:
   deploy:
