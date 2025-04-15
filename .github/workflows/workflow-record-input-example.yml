@@ -25,8 +25,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.Record-ACAT}}"
-      env:
-        CYPRESS_RECORD_OPTION: ${{ env.CYPRESS_RECORD_OPTION }} 
-        OPTION: ${{ env.OPTION}}
+      - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.Record-ACAT}} ${{ vars.CYPRESS_RECORD_OPTION }} ${{vars.OPTION}} "
   
