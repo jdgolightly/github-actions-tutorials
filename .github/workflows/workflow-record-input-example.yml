@@ -4,7 +4,7 @@ on:
  workflow_dispatch:
     inputs:
       Record-ACAT:
-        description: ‘Record ACAT-test run’
+        description: ‘Record ACAT-Test run’
         required: true
         default: '--record false'
         type: choice
