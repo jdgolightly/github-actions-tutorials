@@ -6,7 +6,7 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
-        default: --record false
+        default: '--record false'
         type: choice
         options:
           - --record false
@@ -30,6 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event.inputs.Record-ACAT == '--record')
     steps:
-      - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }} "
+      - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }}"
     env:
-      CYPRESS_RECORD_OPTION: ${${{ vars.CYPRESS_RECORD_OPTION }}
+      CYPRESS_RECORD_OPTION: ${{ vars.CYPRESS_RECORD_OPTION }}
