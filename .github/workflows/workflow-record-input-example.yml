@@ -6,7 +6,7 @@ on:
       Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
-        default: '--record false'
+        default: --record false
         type: choice
         options:
           - --record false
