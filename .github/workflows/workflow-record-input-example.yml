@@ -3,25 +3,36 @@ name: Workflow Record Input Example
 on:
  workflow_dispatch:
     inputs:
-      Record-ACAT:
+      CYPRESS_RECORD_OPTION:
         description: ‘Record ACAT-test run’
         required: true
-        default: -record false
+        default: $CYPRESS_RECORD_OPTION-record false
         type: choice
         options:
-          - $CYPRESS_RECORD_OPTION --record false
-          - $CYPRESS_RECORD_OPTION --record 
+          - --record false
+          - --record 
 
  push:
     branches:
       - main
           
 env:
-  CYPRESS_RECORD_OPTION: ${{ vars.CYPRESS_RECORD_OPTION == github.event.inputs.Record-ACAT || '--record false' }}
+  CYPRESS_RECORD_OPTION: ${{ github.event.inputs.CYPRESS_RECORD_OPTION }}
   DEV_ENVIRONMENT_VAR: ${{ vars.CYPRESS_RECORD_OPTION}}
+
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.Record-ACAT}}" 
+      - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.CYPRESS_RECORD_OPTION}}" 
+
+      - name: Cypress tests
+    
+        uses: cypress-io/github-action@v6
+        # let's give this action an ID so we can refer
+        # to its output values later
+        id: cypress
+        with:
+         record: true
+    
