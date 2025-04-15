@@ -32,4 +32,4 @@ jobs:
     steps:
       - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }} "
     env:
-      CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT }}
+      CYPRESS_RECORD_OPTION: ${${{ vars.CYPRESS_RECORD_OPTION }}
