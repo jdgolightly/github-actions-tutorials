@@ -19,7 +19,6 @@ on:
 env:
   CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT }}
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
