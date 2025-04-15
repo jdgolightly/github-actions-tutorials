@@ -28,7 +28,7 @@ jobs:
 
   notify:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.Record-ACAT  }}
+    if: (github.event.inputs.Record-ACAT == '--record')
     steps:
       - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }} "
     env:
