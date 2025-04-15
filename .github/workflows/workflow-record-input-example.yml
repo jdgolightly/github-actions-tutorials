@@ -3,7 +3,7 @@ name: Workflow Record Input Example
 on:
  workflow_dispatch:
     inputs:
-      CYPRESS_RECORD_OPTION:
+      Record-ACAT:
         description: ‘Record ACAT-test run’
         required: true
         default: --record false
@@ -17,8 +17,7 @@ on:
       - main
           
 env:
-  CPRESS_RECORD_OPTION: ${{ github.event.inputs.CYPRESS_RECORD_OPTION }}
-
+  CPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT }}
   DEV_ENVIRONMENT_VAR: ${{ vars.CYPRESS_RECORD_OPTION }}
 
 
@@ -26,8 +25,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.CYPRESS_RECORD_OPTION}}" 
+      - run: echo " CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.Record-ACAT}}" 
     
       - name: update Variables
-        run: CYPRESS_RECORD_OPTION == ${{ github.event.inputs.CYPRESS_RECORD_OPTION }}
-             DEV_ENVIRONMENT_VAR == ${{ vars.CYPRESS_RECORD_OPTION }}
+        run: echo ${{vars.CYPRESS_RECORD_OPTION }} === ${{ github.event.inputs.Record-ACAT }}
