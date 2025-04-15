@@ -29,5 +29,5 @@ jobs:
       - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.CYPRESS_RECORD_OPTION}}" 
     
       - name: update Variables
-        run: CPRESS_RECORD_OPTION == ${{ github.event.inputs.CYPRESS_RECORD_OPTION }}
+        run: CYPRESS_RECORD_OPTION == ${{ github.event.inputs.CYPRESS_RECORD_OPTION }}
              DEV_ENVIRONMENT_VAR == ${{ vars.CYPRESS_RECORD_OPTION }}
