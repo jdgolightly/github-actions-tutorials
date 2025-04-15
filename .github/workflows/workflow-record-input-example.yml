@@ -30,4 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.Record-ACAT  }}
     steps:
-      - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }} === ${{ vars.CYPRESS_RECORD_OPTION }}"
+      - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }} "
+    env:
+      CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT }}
