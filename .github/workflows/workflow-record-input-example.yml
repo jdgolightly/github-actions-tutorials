@@ -9,8 +9,8 @@ on:
         default: --record false
         type: choice
         options:
-          - $CYPRESS_RECORD_OPTION --record false 
-          - $CYPRESS_RECORD_OPTION --record 
+          - --record false 
+          - --record 
 
  push:
     branches:
@@ -18,6 +18,7 @@ on:
           
 env:
   CPRESS_RECORD_OPTION: ${{ github.event.inputs.CYPRESS_RECORD_OPTION }}
+
   DEV_ENVIRONMENT_VAR: ${{ vars.CYPRESS_RECORD_OPTION }}
 
 
@@ -27,3 +28,6 @@ jobs:
     steps:
       - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.CYPRESS_RECORD_OPTION}}" 
     
+      - name: update Variables
+        run: CPRESS_RECORD_OPTION == ${{ github.event.inputs.CYPRESS_RECORD_OPTION }}
+             DEV_ENVIRONMENT_VAR == ${{ vars.CYPRESS_RECORD_OPTION }}
