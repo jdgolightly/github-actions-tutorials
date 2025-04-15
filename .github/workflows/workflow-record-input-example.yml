@@ -17,7 +17,7 @@ on:
       - main
           
 env:
-  CPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT }}
+  CYPRESS_RECORD_OPTION: ${{ github.event.inputs.Record-ACAT }}
   DEV_ENVIRONMENT_VAR: ${{ vars.CYPRESS_RECORD_OPTION }}
 
 
