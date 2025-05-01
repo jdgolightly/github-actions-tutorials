@@ -17,3 +17,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploying to ${{ github.event.inputs.environment }} environment"
+
+      - name: Run Remote Test [Jest, Cypress-Component, Cypress-E2E]
+        continue-on-error: true
+        run: echo "Deploying on error to ${{ github.event.inputs.environment }} environment"
+        env:
+          CYPRESS_RECORD_OPTION: ${{ vars.CYPRESS_RECORD_OPTION }}
+
+      - name: Run Remote Test [Jest, Cypress-Component, Cypress-E2E]
+        if: failure()
+        run: echo "Deploying on fail to ${{ github.event.inputs.environment }} environment"
+    env:
+      CYPRESS_RECORD_OPTION: '--record'
