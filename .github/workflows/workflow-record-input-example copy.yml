@@ -25,18 +25,16 @@ jobs:
     steps:
       - run: echo "CYPRESS_RECORD_OPTION Value is set to ${{ github.event.inputs.Record-ACAT}}"
 
-  notify:
-    runs-on: ubuntu-latest
-    if: (github.event.inputs.Record-ACAT == '--record')
-    steps:
-      - run: echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }}"
-    env:
-      CYPRESS_RECORD_OPTION: $CYPRESS_ERCORD_OPTION
-      
 
-    - name: Run Remote Test
-      continue-on-error: true
-      run: echo echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }}"
-
-     - name: 
       
+        name: Run Remote Test []
+        continue-on-error: true
+      - run: echo echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }}"
+      env: 
+        CYPRESS_RECORD_OPTION: ${{ vars.CYPRESS_RECORD_OPTION }}
+
+        name: Run Remote Test []
+        if: failure()
+        run: echo echo "CYPRESS_RECORD_OPTION set to ${{ github.event.inputs.Record-ACAT }}"
+        env:     
+        CYPRESS_RECORD_OPTION: '--record true'
